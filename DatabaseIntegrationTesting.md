@@ -38,8 +38,12 @@ The integration testing should follow good test practices, such as:
 Separating Unit Tests and Integration Tests using Gradle
 -------------------------------------------------------------------
 
-To be added later
+Using JUnit Categories.
 
+Reference:
+https://github.com/junit-team/junit/wiki/Categories
+https://docs.gradle.org/current/userguide/java_plugin.html
+45.13
 
 Test Database Setup
 ------------------------
