@@ -86,12 +86,14 @@ Follow the Advanced Akka course examples and use FSM. Define the states clearly.
 ```
 **Cluster Aware Routers**
 **Group router - look up routees on member nodes**
-<i class="icon-right-circled"></i> Must create the routee actors separately
-<i class="icon-right-circled"></i> Routee can be created after the router node
-<i class="icon-right-circled"></i> Routee is created using the normal actor creation way (context().actorOf(props))
-<i class="icon-right-circled"></i> Router node is created using context().actorOf(new FromConfig().props(), name);
-<i class="icon-right-circled"></i> Router will look for routees specified in routees.paths from all nodes in the cluster.
+
+- Must create the routee actors separately
+- Routee can be created after the router node
+- Routee is created using the normal actor creation way (context().actorOf(props))
+- Router node is created using context().actorOf(new FromConfig().props(), name);
+- Router will look for routees specified in routees.paths from all nodes in the cluster.
 
 **Pool router - create routees on member nodes**
-<i class="icon-right-circled"></i> No need to create routee actors separately. They are auto created.
-<i class="icon-right-circled"></i> Router node is created using context().actorOf(new FromConfig().props(), name);
+
+- No need to create routee actors separately. They are auto created.
+- Router node is created using context().actorOf(new FromConfig().props(), name);
