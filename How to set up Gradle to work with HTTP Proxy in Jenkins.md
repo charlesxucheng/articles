@@ -4,7 +4,7 @@ Assume the Jenkin service s is running as local system account. Local system acc
 
 Solution:
 =========
-1.	Remote login to the server using your own account. Create gradle.properties in .gradle folder of your home directory. Put in your credentials – exactly like what you do for your local machine.
+1.	Remote login to the server using your own account. Create gradle.properties in .gradle folder of your home directory. Put in your credentials – Refer to: http://stackoverflow.com/questions/8938994/gradlew-behind-a-proxy. Take note that you must use "\\\\" to specify Windows domain users. e.g. "DOMAIN\\\\USER"
 2.	Change the security permission of the file to be visible to only your own account and Local System account to protect your password. Remove access by admin.
 3.	Set or change the system environment variable GRADLE_USER_HOME to the .gradle folder in your home directory. This will make gradle use that folder as its user home directory and use the gradle.properties file and cache folder inside it. This gradle.properties file will supersede the one in project folder, if any.
 4.	Restart Jenkins service after you change GRADLE_USER_HOME.
