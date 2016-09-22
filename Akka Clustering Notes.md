@@ -9,7 +9,7 @@ For our project, possible roles are:
 
 - RequestDispatcher
 -- Keep track of instance run requests
--- Keep track of active workers and available workers
+-- Keep track of available workers
 -- Send requests to available workers
 -- Keep track of requests being served (including request time-outs). 
 -- Blacklist workers who may have issue serving requests
@@ -117,7 +117,6 @@ Follow the Advanced Akka course examples. Define the states clearly. Take note o
 ```
 **Cluster Aware Routers**
 **Group router - look up routees on member nodes**
-
 - Must create the routee actors separately
 - Routee can be created after the router node
 - Routee is created using the normal actor creation way (context().actorOf(props))
@@ -125,12 +124,13 @@ Follow the Advanced Akka course examples. Define the states clearly. Take note o
 - Router will look for routees specified in routees.paths from all nodes in the cluster.
 
 **Pool router - create routees on member nodes**
-
 - No need to create routee actors separately. They are auto created.
 - Router node is created using context().actorOf(new FromConfig().props(), name);
 
+**Circuit Breaker for preventing cascading failures in distributed systems**
+- Akka Circuit Breaker pattern can be used to implement the dispatcher behavior of monitoring executor timeouts and blacklisting
+- http://doc.akka.io/docs/akka/current/common/circuitbreaker.html
 #Sequence Diagram
-
 ```sequence
 InstanceExecutionRequestSubmissionController->InstanceExecRequestSubmissionService:submitRequest()
 InstanceExecRequestSubmissionService->InstanceExecutionRequestRepo:createRequest()
