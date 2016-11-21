@@ -1,0 +1,61 @@
+Reading Notes - Elements of Statistical Learning 
+
+Regression
+Classification
+
+Loss function
+
+- Cost function
+- Minimize 
+- Properties
+-- Differentiateable
+-- Convex
+
+Linear Regression
+K Nearest Neighbor (K-NN):
+
+- Regression
+- Classification
+
+Mean Absolute Error
+| x - f(x) |
+f* = Median (Y | X = x)
+
+Squared loss
+f* = E(Y | X = x)
+
+Information that is not captured by regression is in the residuals
+Different ways of treating residuals
+
+Gaussian distribution = Normal Distribution
+Affine set, affine space:
+https://en.wikipedia.org/wiki/Affine_space
+
+Linear function:
+https://en.wikipedia.org/wiki/Linear_function
+In linear algebra, a linear function is a map f between two vector spaces that preserves vector addition and scalar multiplication.
+
+Nonsingular = nondegenerate = invertible
+https://en.wikipedia.org/wiki/Invertible_matrix
+
+2.3.3
+The linear decision boundary from least squares is very smooth, and apparently stable to fit. It does appear to rely heavily on the assumption that a linear decision boundary is appropriate. In language we will develop shortly, it has low variance and potentially high bias.
+On the other hand, the k-nearest-neighbor procedures do not appear to rely on any stringent assumptions about the underlying data, and can adapt to any situation. However, any particular subregion of the decision boundary depends on a handful of input points and their particular positions, and is thus wiggly and unstable—high variance and low bias.
+
+Each method has its own situations for which it works best; in particular linear regression is more appropriate for Scenario 1 above, while nearest neighbors are more suitable for Scenario 2.
+
+Scenario 1: The training data in each class were generated from bivariate Gaussian distributions with uncorrelated components and different means.
+Scenario 2: The training data in each class came from a mixture of 10 lowvariance Gaussian distributions, with individual means themselves distributed as Gaussian.
+
+Curse of dimensionality
+Another manifestation of the curse is that the sampling density is proportional to N^1/p
+
+Bias-variance decomposition (MSE = Var + Bias^2)
+The bias (or bias function) of an estimator is the difference between this estimator's expected value and the true value of the parameter being estimated
+Variance (as per the normal definition) is the expectation of the squared deviation of a random variable from its mean. 
+
+2.5
+What's the problem with neighborhoods no longer being local when dimension increases?
+
+??:
+The reason that this presents a problem is that prediction is much more difficult near the edges of the training sample. One must extrapolate from neighboring sample points rather than interpolate between them.
